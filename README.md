@@ -1,107 +1,116 @@
-# IoT-Based-Studio-Automation
+# IoT-Based Studio Automation 🏡🤖
+---
 
-
-## Overview
-The Studio Automation System is designed to automate lighting and motion-based control using an Arduino. This project integrates a PIR motion sensor, a servo motor, and an LED system to enhance the automation of a studio environment. The system operates based on motion detection and user input via serial communication.
-
-## Features
-- **Motion Detection:** Uses a PIR sensor to detect movement.
-- **Servo Motor Control:** Moves a servo motor based on motion detection.
-- **LED Control:** Allows turning an LED on or off via serial commands.
-- **Serial Communication:** Enables remote control of LED status through commands ('1' to turn ON, '0' to turn OFF).
-
-## Components Used
-- Arduino Board
-- PIR Motion Sensor
-- Servo Motor
-- LED
-- Resistors and connecting wires
-
-## Installation and Setup
-1. Connect the components to the Arduino as per the wiring diagram:
-   - PIR sensor to digital pin 7
-   - Servo motor to digital pin 8
-   - LED to digital pin 3 (with a resistor in series)
-2. Upload the provided Arduino code to the board.
-3. Open the Serial Monitor in the Arduino IDE to control the LED.
-4. Observe the servo movement in response to motion detection.
-
-## Code Explanation
-The system consists of two main functions:
-- **ledLoop():**
-  - Reads input from the serial monitor.
-  - Turns the LED ON ('1') or OFF ('0').
-- **motorLoop():**
-  - Reads the PIR sensor state.
-  - Moves the servo to 180 degrees when motion is detected and resets to 0 degrees otherwise.
-
-### Code Snippet
-```cpp
-#include <Servo.h>
-
-Servo myservo;
-int pir = 7;
-int ledPin = 3;
-
-void setup() {
-  pinMode(ledPin, OUTPUT);
-  Serial.begin(9600);
-  pinMode(pir, INPUT);
-  myservo.attach(8);
-}
-
-void ledLoop() {
-  while (Serial.available() > 0) {
-    char command = Serial.read();
-    if (command == '1') {
-      digitalWrite(ledPin, HIGH);
-      Serial.println("LED turned on");
-    } else if (command == '0') {
-      digitalWrite(ledPin, LOW);
-      Serial.println("LED turned off");
-    }
-  }
-}
-
-void motorLoop() {
-  int motionDetected = digitalRead(pir);
-  Serial.println(motionDetected);
-  if (motionDetected == HIGH) {
-    myservo.write(180);
-    delay(1000);
-  } else {
-    myservo.write(0);
-  }
-  delay(100);
-}
-
-void loop() {
-  ledLoop();
-  motorLoop();
-}
-```
-
-## How to Use
-1. **Turn the LED On/Off:**
-   - Open the Serial Monitor in the Arduino IDE.
-   - Enter '1' to turn on the LED.
-   - Enter '0' to turn off the LED.
-2. **Motion Detection & Servo Movement:**
-   - The servo motor moves when motion is detected by the PIR sensor.
-   - If motion is detected, the servo moves to 180°; otherwise, it returns to 0°.
-
-## Future Enhancements
-- Adding a buzzer for audio alerts.
-- Integration with IoT platforms for remote monitoring.
-- Adding a mobile application for better control.
-
-## Conclusion
-The Studio Automation System is a simple yet effective automation solution for controlling lights and motion-based actions in a studio setup. This project demonstrates fundamental automation concepts using Arduino.
-
-## Author
-**Aaron Cardozo**
+## 📌 Overview
+The IoT-Based Studio Automation System automates doors, curtains, and lights using Arduino Uno, PIR sensor, servo motor, DC motor, motor driver L298N, and Bluetooth module HC-05. A custom mobile app developed using MIT App Inventor allows users to control the system wirelessly.
 
 ---
-### License
-This project is licensed under the ISC License.
+## 🚀 Features
+🔑 Door Automation – Motion-based door opening using a PIR sensor.
 
+🎭 Curtain Control – Open and close curtains via a mobile app.
+
+💡 Lighting Automation – Wireless control of studio lighting.
+
+📡 Bluetooth Connectivity – Control devices using the HC-05 module.
+
+🔄 Serial Monitor Debugging – Monitor real-time sensor readings and logs.
+
+📱 User-Friendly Mobile App – Simple interface for controlling automation.
+
+---
+
+## 🛠️ Components Used
+Arduino Uno – Main microcontroller.
+
+PIR Motion Sensor – Detects motion for door automation.
+
+Servo Motor – Controls door opening and closing.
+
+DC Motor – Operates the curtains.
+
+Motor Driver (L298N) – Controls the DC motor for curtain movement.
+
+Bluetooth Module (HC-05) – Enables wireless control via mobile app.
+
+LEDs & Resistors – Used for lighting automation.
+
+---
+
+## 📥 Clone the Repository
+To get started, clone this repository using:
+
+```sh
+git clone https://github.com/your-username/iot-based-studio-automation.git
+cd iot-based-studio-automation
+```
+
+---
+
+
+## 🛠️ Installation and Setup
+### 🔧 Hardware Setup
+Connect the PIR sensor to digital pin 7 of Arduino.
+
+Connect the servo motor to digital pin 8.
+
+Connect the DC motor via the L298N motor driver.
+
+Connect the Bluetooth module HC-05 to the Arduino for communication.
+
+
+###  💻 Software Setup
+Upload the Arduino code to the Arduino Uno board.
+
+Install the MIT App Inventor application on your smartphone.
+
+
+![image](https://github.com/user-attachments/assets/eb6e959d-7353-4e71-84ba-6f2203a4f9c8)
+
+Scan this QR Code to download the application
+
+
+Pair the Bluetooth module HC-05 with your phone.
+
+---
+
+## 📱 How to Use
+
+🚪 Door Control
+Motion detected? – The door automatically opens.
+
+Manual mode? – Use the mobile app to open/close the door.
+
+🎭 Curtain Control
+Open the mobile app and press Curtains Open/Close to control movement.
+
+💡 Light Control
+Open the mobile app and press Light ON/OFF to control lighting.
+
+---
+
+## 🔮 Future Enhancements
+🎙️ Voice Control – Google Assistant/Alexa integration.
+
+🌍 IoT Integration – Cloud-based remote access.
+
+🌡️ Smart Sensors – Add temperature/humidity sensors.
+
+📲 Enhanced Mobile App – Improve UI/UX and add more automation settings.
+
+🔐 Security Features – Add RFID or fingerprint-based access.
+
+---
+
+## 🏆 Conclusion
+The IoT-Based Studio Automation System simplifies studio management with contactless door access, smart lighting, and automated curtains, demonstrating IoT and smart automation concepts using Arduino and Bluetooth.
+
+---
+
+## 👨‍💻 Author
+Aaron Cardozo
+
+---
+
+## 📜 License
+This project is licensed under the ISC License.
