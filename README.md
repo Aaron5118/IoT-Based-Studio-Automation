@@ -65,9 +65,13 @@ Upload the Arduino code to the Arduino Uno board.
 Install the MIT App Inventor application on your smartphone.
 
 
-![image](https://github.com/user-attachments/assets/eb6e959d-7353-4e71-84ba-6f2203a4f9c8)
+![QR Code](QRCode.gif)
+
 
 Scan this QR Code to download the application
+
+⚠️ Note: This app is currently available only for Android devices.
+
 
 
 Pair the Bluetooth module HC-05 with your phone.
@@ -109,6 +113,12 @@ The IoT-Based Studio Automation System simplifies studio management with contact
 
 ## 👨‍💻 Author
 Aaron Cardozo
+
+---
+
+### **📩 Connect with Me**  
+🔗 **LinkedIn**: [Aaron Cardozo](https://www.linkedin.com/in/aaronardozo)  
+📧 **Email**: aaroncardozo7115@gmail.com  
 
 ---
 
