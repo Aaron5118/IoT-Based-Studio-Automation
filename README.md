@@ -41,7 +41,7 @@ LEDs & Resistors – Used for lighting automation.
 To get started, clone this repository using:
 
 ```sh
-git clone https://github.com/your-username/iot-based-studio-automation.git
+git clone https://github.com/your-username/IoT-Based-Studio-Automation.git
 cd iot-based-studio-automation
 ```
 
